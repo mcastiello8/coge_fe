@@ -1,0 +1,113 @@
+<!-- Begin page content -->
+<main class="flex-shrink-0">
+    <div class="container">
+
+
+        <div class="alert alert-danger alert-dismissible fade show" role="alert" *ngIf="errorMessage">
+            {{errorMessage}}
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+
+        <div class='card'>
+            <div class='card-header'>
+                <h5>Inserisci nuova azienda</h5>
+            </div>
+            <div class='card-body'>
+
+                <form (ngSubmit)="save(aziendaForm)" #aziendaForm="ngForm" class="row g-3">
+
+                    <div class="row-md-4">
+                        <div class="col-md-4">
+                            <label>Ragione sociale <span class="text-danger">*</span></label>
+                            <input type="text" class="form-control" placeholder="Inserire la ragione sociale" required
+                                minlength="2" id="ragioneSociale" name="ragioneSociale" [(ngModel)]="aziendaInsert.ragioneSociale" #ragioneSocialeVar="ngModel"
+                                [ngClass]="{'is-invalid': (ragioneSocialeVar.touched || ragioneSocialeVar.dirty) && !ragioneSocialeVar.valid }">
+                            <span class="invalid-feedback">
+                                <span *ngIf="ragioneSocialeVar.errors?.['required']">
+                                    Prego inserire un valore
+                                </span>
+                                <span *ngIf="ragioneSocialeVar.errors?.['minlength']">
+                                    Il campo deve avere almeno due caratteri.
+                                </span>
+                            </span>
+                        </div>
+                        </div>
+
+                          
+
+                    <div class="row-md-4">
+                        <div class="col-md-4">
+                            <label>Partita Iva <span class="text-danger">*</span></label>
+                            <input type="text" class="form-control" placeholder="Inserire la Partita Iva" required
+                                minlength="2" id="partitaIva" name="partitaIva" [(ngModel)]="aziendaInsert.partitaIva"
+                                #partitaIvaVar="ngModel"
+                                [ngClass]="{'is-invalid': (partitaIvaVar.touched || partitaIvaVar.dirty) && !partitaIvaVar.valid }">
+                            <span class="invalid-feedback">
+                                <span *ngIf="partitaIvaVar.errors?.['required']">
+                                    Prego inserire un valore
+                                </span>
+                                <span *ngIf="partitaIvaVar.errors?.['minlength']">
+                                    Il campo deve avere almeno due caratteri.
+                                </span>
+                            </span>
+                        </div>
+                    </div>
+
+
+                    <div class="row-md-4">
+                        <div class="col-md-4">
+                            <label>Indirizzo <span class="text-danger">*</span></label>
+                            <input type="text" class="form-control" placeholder="Inserire l'indirizzo" required
+                                minlength="2" id="indirizzo" name="indirizzo" [(ngModel)]="aziendaInsert.indirizzo"
+                                #indirizzoVar="ngModel"
+                                [ngClass]="{'is-invalid': (indirizzoVar.touched || indirizzoVar.dirty) && !indirizzoVar.valid }">
+                            <span class="invalid-feedback">
+                                <span *ngIf="indirizzoVar.errors?.['required']">
+                                    Prego inserire un valore
+                                </span>
+                                <span *ngIf="indirizzoVar.errors?.['minlength']">
+                                    Il campo deve avere almeno due caratteri.
+                                </span>
+                            </span>
+                        </div>
+                    </div>
+
+                    
+
+
+                    <!-- <div class="row-md-4">
+                        <div class="col-md-3">
+                            <label>Commesse <span class="text-danger">*</span></label>
+                            <input type="number" class="form-control" placeholder="Inserire commesse"
+                                id="commesse" name="commesse"
+                                [(ngModel)]="aziendaInsert.commesse" #commesseVar="ngModel"
+                                [ngClass]="{'is-invalid': (commesseVar.touched || commesseVar.dirty) && !commesseVar.valid }">
+                            <span class="invalid-feedback">
+                                <span *ngIf="commesseVar.errors?.['required']">
+                                    Prego inserire un valore
+                                </span>
+                                <span *ngIf="commesseVar.errors?.['min']">
+                                    Il campo deve contenere al minimo il valore 1.
+                                </span>
+                            </span>
+                        </div>
+                    </div> -->
+
+                    <div class="col-12">
+                        <button type="submit" name="submit" value="submit" id="submit"
+                            class="btn btn-primary">Conferma</button>
+                    </div>
+
+
+                </form>
+                <!-- {{ libro | json }} -->
+
+                <!-- end card-body -->
+            </div>
+            <!-- end card -->
+        </div>
+        <!-- end container -->
+    </div>
+
+    <!-- end main -->
+</main>
